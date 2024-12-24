@@ -1,0 +1,172 @@
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2018, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>fly.wild.wizards</groupId>
+    <artifactId>tlswizard</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <version.javafx-controls>23</version.javafx-controls>
+        <version.javafx-fxml>13</version.javafx-fxml>
+        <version.wildfly-controller-client>15.0.26.Final-redhat-00001</version.wildfly-controller-client>
+        <version.wildfly-core-management-client>15.0.26.Final-redhat-00001</version.wildfly-core-management-client>
+        <version.wildfly-protocol>15.0.26.Final-redhat-00001</version.wildfly-protocol>
+        <version.wildfly-controller>15.0.19.Final-redhat-00001</version.wildfly-controller>
+        <version.wildfly-cli>15.0.25.Final-redhat-00001</version.wildfly-cli>
+    </properties>
+    
+    <repositories>
+        <repository>
+            <id>jboss-public-maven-repository</id>
+            <name>JBoss Public Maven Repository</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>redhat-ga-maven-repository</id>
+            <name>Red Hat GA Maven Repository</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jboss-public-maven-repository</id>
+            <name>JBoss Public Maven Repository</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>redhat-ga-maven-repository</id>
+            <name>Red Hat GA Maven Repository</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${version.javafx-controls}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${version.javafx-fxml}</version>
+        </dependency>
+ 
+ 		<!-- https://mvnrepository.com/artifact/org.wildfly.core/wildfly-controller-client -->
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-controller-client</artifactId>
+		    <version>${version.wildfly-controller-client}</version>
+		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.wildfly.core/wildfly-core-management-client -->
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-core-management-client</artifactId>
+		    <version>${version.wildfly-core-management-client}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.wildfly.core/wildfly-protocol -->
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-protocol</artifactId>
+		    <version>${version.wildfly-protocol}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.wildfly.core/wildfly-controller -->
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-controller</artifactId>
+		    <version>${version.wildfly-controller}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.wildfly.core/wildfly-cli -->
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-cli</artifactId>
+		    <version>${version.wildfly-cli}</version>
+		</dependency>
+		
+
+    </dependencies>
+ 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.6</version>
+                <executions>
+                    <execution>
+                        <!-- Default configuration for running -->
+                        <!-- Usage: mvn clean javafx:run -->
+                        <id>default-cli</id>
+                        <configuration>
+                            <mainClass>fly.wild.wizards.tlswizard.App</mainClass>
+                           
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
