@@ -44,11 +44,13 @@
                         <ToggleGroup fx:id="tlsType" />
                      </toggleGroup>
                   </RadioButton>
+<!--
                   <RadioButton fx:id="twoWayTLS" mnemonicParsing="false" text="Two-way TLS" toggleGroup="$tlsType">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
                   </RadioButton>
+-->
                </children>
                <padding>
                   <Insets right="5.0" top="10.0" />
